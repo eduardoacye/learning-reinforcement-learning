@@ -126,7 +126,7 @@ Un proceso de decisión Markoviano se compone de;
   - En el ejemplo las acciones `A = {arriba, abajo, izquierda, derecha}` o `A = {↑, ↓, ←, →}`
 * Una función de transición `T : S ⨯ A ⨯ S` la cual calcula la probabilidad de ir a un estado `s'` estando en el estado `s` y eligiendo la acción `a`: `Pr(s' | s,a)`.
   - En el ejemplo esta función se definiría de la siguiente manera para `s=(1,1)` y `a=↑`:
-    * `T((1,1), ↑, s' = { s'=(2,1) -> .8, s'=(1,2) -> .1, s'=(1,1) -> .1, de lo contrario 0 }`
+    * `T((1,1), ↑, s') = { s'=(2,1) -> .8, s'=(1,2) -> .1, s'=(1,1) -> .1, de lo contrario 0 }`
     * se define de manera similar con el resto de los estados y acciones.
 
 ## Referencias
