@@ -119,7 +119,9 @@ Como repaso se puede realizar un cálculo similar con la elección de acciones `
 
 El modelo del universo descrito en la subsección anterior es un *proceso de decisión Markoviano*. Estos sistemas son utilizados en el *aprendizaje por refuerzo* como marcos para plantear problemas, y sobre ellos se desarrolla una solución.
 
-Un proceso de decisión Markoviano se compone de;
+Los procesos de decisión Markovianos son procesos estocásticos que proveen un marco matemático para modelar la toma de decisiones en situaciones donde los resultados de tomar dichas decisiones son parcialmente aleatorios y dependen de la decisión tomada. Se relacionan con las cadenas de Markov en el sentido que 
+
+Un proceso de decisión Markoviano se compone de:
 * Un conjunto de estados `S`
   - En el ejemplo del mundo cuadriculadamente estocástico los estados pueden ser las posiciones válidas `S = {(1,1),(1,2),(1,3),(1,4),(2,1),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4)}`
 * Un conjunto de acciones que se pueden tomar, ya sea en general `A` o en particular para un estado `A : S -> {a1, ..., a_n}`.
@@ -132,3 +134,4 @@ Un proceso de decisión Markoviano se compone de;
 ## Referencias
 
 * [Machine Learining Supervised, Unsupervised & Reinforcement Udacity](https://www.udacity.com/course/machine-learning--ud262)
+* Hoel, Port, Stone. Introduction to Stochastic Processes
