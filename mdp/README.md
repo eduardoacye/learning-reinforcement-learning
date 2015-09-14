@@ -93,6 +93,26 @@ Primero consideramos la secuencia `arriba`, `arriba`, `derecha`, `derecha`, `der
 ┗━━━━━┻━━━━━┻━━━━━┻━━━━━┛
 ```
 
+Existe la posibilidad de que algunas acciones hayan resultado en movimientos no deseados y que aún así lleguemos a la meta, consideremos que al decidir las acciones se realiza alguna otra con probabilidad 0.1:
+* se elige `arriba` se realiza `derecha` con probabilidad 0.1
+* se elige `arriba` se realiza `derecha` con probabilidad 0.1
+* se elige `derecha` se realiza `arriba` con probabilidad 0.1
+* se elige `derecha` se realiza `arriba` con probabilidad 0.1
+* se elige `derecha` se realiza `derecha` con probabilidad 0.8
+
+Calculando probabilidades...
+
+```
+  P([→, →, ↑, ↑, →] ∣ [↑, ↑, →, →, →])
+= P([→∣↑] ∩ [→∣↑] ∩ [↑∣→] ∩ [↑∣→] ∩ [→∣→])
+= P(→∣↑)P(→∣↑)P(↑∣→)P(↑∣→)P(→∣→)
+= 0.1 * 0.1 * 0.1 * 0.1 * 0.8
+= 0.1^4 * 0.8
+= 0.00008
+```
+
+Ya que estas son las únicas trayectorias posibles en esa cantidad de pasos y con esa elección de acciones, la probabilidad de la secuencia es la suma de las probabilidades calculadas: `0.32768 + 0.00008 = 0.32776`.
+
 ## Referencias
 
 * [Machine Learining Supervised, Unsupervised & Reinforcement Udacity](https://www.udacity.com/course/machine-learning--ud262)
