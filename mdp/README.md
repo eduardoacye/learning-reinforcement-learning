@@ -72,9 +72,15 @@ Considerando este nuevo modelo, nos podemos plantear una nueva pregunta, ¿Cuál
 
 Se aborda el cálculo de la probabilidad de las dos secuencias encontradas:
 
-Primero consideramos la secuencia `arriba`, `arriba`, `derecha`, `derecha`, `derecha`. En caso que las acciones se realicen correctamente se llega a la meta con una probabilidad de
+Primero consideramos la secuencia `arriba`, `arriba`, `derecha`, `derecha`, `derecha`. En caso que las acciones se realicen correctamente se llega a la meta con una probabilidad de:
 
-\[P([u\to u] \cap [u\to u] \cap [r\to r] \cap [r\to r] \cap [r\to r]) = P([u\to u])P([u\to u])P([r\to r])P([r\to r])P([r\to r]) = 0.8\times 0.8\times 0.8\times 0.8\time 0.8 = 0.8^5 = 0.32768\]
+```
+  P([u->u] \cap [u->u] \cap [r->r] \cap [r->r] \cap [r->r])
+= P([u->u])P([u->u])P([r->r])P([r->r])P([r->r])
+= 0.8 * 0.8 * 0.8 * 0.8 * 0.8
+= 0.8^5
+= 0.32768
+```
 
 ```
 ┏━━━━━┳━━━━━┳━━━━━┳━━━━━┓
