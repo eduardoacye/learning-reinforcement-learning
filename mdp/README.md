@@ -75,8 +75,9 @@ Se aborda el cálculo de la probabilidad de las dos secuencias encontradas:
 Primero consideramos la secuencia `arriba`, `arriba`, `derecha`, `derecha`, `derecha`. En caso que las acciones se realicen correctamente se llega a la meta con una probabilidad de:
 
 ```
-  P([u->u] ∩ [u->u] ∩ [r->r] ∩ [r->r] ∩ [r->r])
-= P([u->u])P([u->u])P([r->r])P([r->r])P([r->r])
+  P([↑, ↑, →, →, →] ∣ [↑, ↑, →, →, →])
+= P([↑∣↑] ∩ [↑∣↑] ∩ [→∣→] ∩ [→∣→] ∩ [→∣→])
+= P(↑∣↑)P(↑∣↑)P(→∣→)P(→∣→)P(→∣→)
 = 0.8 * 0.8 * 0.8 * 0.8 * 0.8
 = 0.8^5
 = 0.32768
