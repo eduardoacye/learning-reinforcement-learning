@@ -115,6 +115,20 @@ Ya que estas son las únicas trayectorias posibles en esa cantidad de pasos y co
 
 Como repaso se puede realizar un cálculo similar con la elección de acciones `derecha`, `derecha`, `arriba`, `arriba`, `derecha`, ¿Qué secuencia de elecciones es mas probable en este universo?
 
+### Formalización del mundo cuadriculadamente estocástico
+
+El modelo del universo descrito en la subsección anterior es un *proceso de decisión Markoviano*. Estos sistemas son utilizados en el *aprendizaje por refuerzo* como marcos para plantear problemas, y sobre ellos se desarrolla una solución.
+
+Un proceso de decisión Markoviano se compone de;
+* Un conjunto de estados `S`
+  - En el ejemplo del mundo cuadriculadamente estocástico los estados pueden ser las posiciones válidas `S = {(1,1),(1,2),(1,3),(1,4),(2,1),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4)}`
+* Un conjunto de acciones que se pueden tomar, ya sea en general `A` o en particular para un estado `A : S -> {a1, ..., a_n}`.
+  - En el ejemplo las acciones `A = {arriba, abajo, izquierda, derecha}` o `A = {↑, ↓, ←, →}`
+* Una función de transición `T : S ⨯ A ⨯ S` la cual calcula la probabilidad de ir a un estado `s'` estando en el estado `s` y eligiendo la acción `a`: `Pr(s' | s,a)`.
+  - En el ejemplo esta función se definiría de la siguiente manera para `s=(1,1)` y `a=↑`:
+    * `T((1,1), ↑, s' = { s'=(2,1) -> .8, s'=(1,2) -> .1, s'=(1,1) -> .1, de lo contrario 0 }`
+    * se define de manera similar con el resto de los estados y acciones.
+
 ## Referencias
 
 * [Machine Learining Supervised, Unsupervised & Reinforcement Udacity](https://www.udacity.com/course/machine-learning--ud262)
