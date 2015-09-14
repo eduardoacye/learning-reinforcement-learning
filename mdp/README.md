@@ -2,15 +2,20 @@
 
 ## El mundo cuadriculado
 
+Consideremos un mundo cuadriculado cuya representación gráfica es la siguiente:
+
 ```
 ┏━━━━━┳━━━━━┳━━━━━┳━━━━━┓
-┃     ┃     ┃     ┃✓goal┃
+┃     ┃     ┃     ┃✓ fin┃
 ┣━━━━━╋━━━━━╋━━━━━╋━━━━━┫
-┃     ┃█████┃     ┃✗bad ┃
+┃     ┃█████┃     ┃✗ fin┃
 ┣━━━━━╋━━━━━╋━━━━━╋━━━━━┫
-┃     ┃     ┃     ┃     ┃
+┃◯ ini┃     ┃     ┃     ┃
 ┗━━━━━┻━━━━━┻━━━━━┻━━━━━┛
 ```
+
+`◯ ini`, `✓ fin` y `✗ fin` denotan el inicio, fin positivo y fin negativo respectivamente
+
 
 ## Referencias
 
