@@ -113,6 +113,8 @@ Calculando probabilidades...
 
 Ya que estas son las únicas trayectorias posibles en esa cantidad de pasos y con esa elección de acciones, la probabilidad de la secuencia es la suma de las probabilidades calculadas: `0.32768 + 0.00008 = 0.32776`.
 
+Como repaso se puede realizar un cálculo similar con la elección de acciones `derecha`, `derecha`, `arriba`, `arriba`, `derecha`, ¿Qué secuencia de elecciones es mas probable en este universo?
+
 ## Referencias
 
 * [Machine Learining Supervised, Unsupervised & Reinforcement Udacity](https://www.udacity.com/course/machine-learning--ud262)
