@@ -75,9 +75,9 @@ Se aborda el cálculo de la probabilidad de las dos secuencias encontradas:
 Primero consideramos la secuencia `arriba`, `arriba`, `derecha`, `derecha`, `derecha`. En caso que las acciones se realicen correctamente se llega a la meta con una probabilidad de:
 
 ```
-  P([↑, ↑, →, →, →] ∣ [↑, ↑, →, →, →])
-= P([↑∣↑] ∩ [↑∣↑] ∩ [→∣→] ∩ [→∣→] ∩ [→∣→])
-= P(↑∣↑)P(↑∣↑)P(→∣→)P(→∣→)P(→∣→)
+  P(realiza=[↑, ↑, →, →, →] ∩ elige=[↑, ↑, →, →, →])
+= P([realiza=↑ ∩ elige=↑] ∩ [realiza=↑ ∩ elige=↑] ∩ [realiza=→ ∩ elige=→] ∩ [realiza=→ ∩ elige=→] ∩ [realiza=→ ∩ elige=→])
+= P(realiza=↑ ∩ elige=↑)P(realiza=↑ ∩ elige=↑)P(realiza=→ ∩ elige=→)P(realiza=→ ∩ elige=→)P(realiza=→ ∩ elige=→)
 = 0.8 * 0.8 * 0.8 * 0.8 * 0.8
 = 0.8^5
 = 0.32768
@@ -103,9 +103,9 @@ Existe la posibilidad de que algunas acciones hayan resultado en movimientos no 
 Calculando probabilidades...
 
 ```
-  P([→, →, ↑, ↑, →] ∣ [↑, ↑, →, →, →])
-= P([→∣↑] ∩ [→∣↑] ∩ [↑∣→] ∩ [↑∣→] ∩ [→∣→])
-= P(→∣↑)P(→∣↑)P(↑∣→)P(↑∣→)P(→∣→)
+  P(realiza=[→, →, ↑, ↑, →] ∩ elige=[↑, ↑, →, →, →])
+= P([realiza=→ ∩ elige=↑] ∩ [realiza=→ ∩ elige=↑] ∩ [realiza=↑ ∩ elige=→] ∩ [realiza=↑ ∩ elige=→] ∩ [realiza=→ ∩ elige=→])
+= P(realiza=→ ∩ elige=↑)P(realiza=→ ∩ elige=↑)P(realiza=↑ ∩ elige=→)P(realiza=↑ ∩ elige=→)P(realiza=→ ∩ elige=→)
 = 0.1 * 0.1 * 0.1 * 0.1 * 0.8
 = 0.1^4 * 0.8
 = 0.00008
