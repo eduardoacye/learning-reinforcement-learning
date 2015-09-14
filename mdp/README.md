@@ -138,7 +138,9 @@ Un proceso de decisión Markoviano se compone de:
   = P(S_n+1 = s_n+1 | S_n = s_n, A_n = a_n)
   ```
   - Este modelo es **estacionario**, esto implica que la función de transición `P(S_n+1 = s' | S_n = s, A_n = a)` es independiente de `n`
+* Una recompensa `R` que puede estar en función de `S`, `S ⨯ A` o `S ⨯ A ⨯ S` correspondientes a la dependencia con el estado actual; el estado actual y la acción elegida; el estado actual, la acción elegida y el estado donde termina el movimiento respectivamente.
 
+La solución a un proceso de decisión Markoviano es una política `π : S -> A`, esta función determina que acción tomar estando en un estado en particular. Existe también una solución especial a los problemas, llamada política óptima `π*` cuyas acciones maximizan la esperanza de recompensas a largo plazo.
 
 ## Referencias
 
