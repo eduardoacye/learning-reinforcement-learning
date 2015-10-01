@@ -138,11 +138,28 @@ Un proceso de decisión Markoviano se compone de:
   = P(S_n+1 = s_n+1 | S_n = s_n, A_n = a_n)
   ```
   - Este modelo es **estacionario**, esto implica que la función de transición `P(S_n+1 = s' | S_n = s, A_n = a)` es independiente de `n`
-* Una recompensa `R` que puede estar en función de `S`, `S ⨯ A` o `S ⨯ A ⨯ S` correspondientes a la dependencia con el estado actual; el estado actual y la acción elegida; el estado actual, la acción elegida y el estado donde termina el movimiento respectivamente.
+* Una recompensa `R` que puede estar en función de `S ⨯ A ⨯ S -> R` correspondiente al estado actual, la acción elegida y el estado donde termina el movimiento respectivamente, se obtiene un valor numérico real.
 
-La solución a un proceso de decisión Markoviano es una política `π : S -> A`, esta función determina que acción tomar estando en un estado en particular. Existe también una solución especial a los problemas, llamada política óptima `π*` cuyas acciones maximizan la esperanza de recompensas a largo plazo.
+La solución a un proceso de decisión Markoviano es una política `π : S -> A`, esta función determina que acción tomar estando en un estado en particular. Existe también una solución especial a los problemas, llamada política óptima `π*` cuyas acciones maximizan la esperanza de recompensas a largo plazo. Otra manera de ver a `π` es como una función de probabilidad `π : S ⨯ A -> [0,1]` y representa la probabilidad de realizar la acción en el estado.
+
+Nuestro objetivo es encontrar una política `π` que maximice la esperanza del retorno futuro, se define como `E[R_t] = E[r_t + r_t+1 + r_t+2 + ... + r_T]`.
+
+### Criterio descontado
+
+```
+R_t = γ^0 * r_(t+1) + γ^1 * r_(t+2) + ...
+
+R_t = r_(t+1) + γ * R_(t+1)
+
+E[R_t] = E[r_(t+1)] + γ * E[R_(t+1)]
+
+Vπ(s) = Eπ[R_t | S_t = s] = Eπ[r_(t+1) | S_t = s] + γ * Eπ[R_(t+1) | S_t = s]
+
+Función de valor estado
+```
 
 ## Referencias
 
 * [Machine Learining Supervised, Unsupervised & Reinforcement Udacity](https://www.udacity.com/course/machine-learning--ud262)
 * Hoel, Port, Stone. Introduction to Stochastic Processes
+* Waissman, Julio. Notas de clase.
