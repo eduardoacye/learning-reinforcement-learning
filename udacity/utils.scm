@@ -5,6 +5,11 @@
        (syntax-rules ()
 	 ((name . pattern) template))))))
 
+(define-syntax sum
+  (syntax-rules (for in)
+    ((sum code for var in lst)
+     (apply + (map (lambda (var) code) lst)))))
+
 (define-syntax val-max
   (syntax-rules (for in)
     ((val-max code for var in lst)
@@ -27,14 +32,13 @@
     ((dict code-key => code-val for var in lst)
      (map (lambda (var) (cons code-key code-val)) lst))))
 
-(define-syntax-rule (make-utility x ...)
-  (mdp:utility (dict x ...)))
-
-(define-syntax-rule (make-policy x ...)
-  (mdp:policy (dict x ...)))
-
 (define (difference x y)
   (abs (- x y)))
+
+(define (alist-lambda alist)
+  (lambda (x)
+    (cond ((assoc x alist) => cdr)
+	  (else (error "value not in the domain of the function" x)))))
 
 (define (approximate good-enough? improve initial-guess)
   (define (next-step current-guess)

@@ -48,8 +48,7 @@
   '(up down left right))
 
 (define rewards
-  (mapping
-   (s a s*)
+  (mapping (s a s*)
    ((s a '(3 1)) -1.0)
    ((s a '(3 2)) +1.0)
    (else         -0.04)))
