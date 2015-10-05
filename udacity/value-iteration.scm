@@ -8,6 +8,6 @@
   (approximate (lambda (U1 U2)		;good-enough?
 		 (< (val-max (difference (U1 s) (U2 s)) for s in (mdp:S m)) tolerance))
 	       (lambda (U)			;improve
-		 (make-utility s => (mdp:bellman-update m discount U s) for s in (mdp:S m)))
+		 (make-utility s => (mdp:bellman m discount U s) for s in (mdp:S m)))
 	       (lambda ()			;initial-guess
 		 (make-utility s => 0.0 for s in (mdp:S m)))))

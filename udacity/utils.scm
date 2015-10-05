@@ -43,7 +43,7 @@
 (define (approximate good-enough? improve initial-guess)
   (define (next-step current-guess)
     (let ((next-guess (improve current-guess)))
-      (if (good-enough? next-guess current-guess)
+      (if (good-enough? current-guess next-guess)
 	  current-guess
 	  (next-step next-guess))))
   (next-step (initial-guess)))

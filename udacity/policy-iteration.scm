@@ -6,7 +6,7 @@
 
 (define (policy-iteration mdp)
   (approximate (lambda (P1 P2)		;good-enough?
-		 )
+		 ())
 	       (lambda (P)			;improve
 		 (make-policy s => ()))
 	       (lambda ()			;initial-guess
