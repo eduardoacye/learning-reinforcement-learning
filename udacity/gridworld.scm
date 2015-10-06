@@ -48,13 +48,13 @@
   (if (member state states) '(up down left right) '()))
 
 (define rewards
-  (mapping (s a s*)
-   ((s a '(3 1)) -1.0)
-   ((s a '(3 2)) +1.0)
+  (mapping (s)
+   (('(3 1)) -1.0)
+   (('(3 2)) +1.0)
    (else         -0.04)))
 
 
-#;
+
 (define gridworld
   (make-mdp states
 	    transitions

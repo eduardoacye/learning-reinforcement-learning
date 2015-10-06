@@ -1,3 +1,6 @@
+(import (scheme base)
+	(scheme time))
+
 (define-syntax define-syntax-rule
   (syntax-rules ()
     ((define-syntax-rule (name . pattern) template)
@@ -47,3 +50,48 @@
 	  current-guess
 	  (next-step next-guess))))
   (next-step (initial-guess)))
+
+;;; 
+;;; ========================
+;;; RANDOM NUMBER GENERATOR
+;;; ========================
+;;;
+;;; BEGIN IGNORANCE
+;;;
+;;; STRANGE ARCANE NUMERICAL SHIT IS ABOUT TO BE WRITTEN
+;;; I DO NOT FULLY UNDERSTAND THIS CODE
+
+(define (make-linear-congruential-generator m a c)
+  (let ((prev (current-jiffy)))
+    (lambda ()
+      (define next (remainder (+ (* a prev) c) m))
+      (set! prev next)
+      next)))
+
+(define the-knuth (make-linear-congruential-generator 18446744073709551616 ;MAGIC NUMBER 1
+						      6364136223846793005  ;MAGIC NUMBER 2
+						      1442695040888963407  ;MAGIC NUMBER 3
+						      ))
+
+(define (random-integer n)
+  (remainder (the-knuth) n))
+
+(define (test-randomness n times)
+  (let ((lst (make-list n 0)))
+    (let iter ((t times))
+      (cond ((zero? t) lst)
+	    ((random-integer n) =>
+	     (lambda (i)
+	       (list-set! lst i (+ 1 (list-ref lst i)))
+	       (iter (- t 1))))))))
+
+(define (random-real)
+  (/ (the-knuth) 18446744073709551616.0))
+
+;;;
+;;; END IGNORANCE
+;;; 
+
+(define (choose lst)
+  (let ((n (length lst)))
+    (list-ref lst (random-integer n))))
