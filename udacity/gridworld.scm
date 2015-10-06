@@ -44,8 +44,8 @@
    ((s a (go s (rotate-right a))) 0.1)
    (else 0.0)))
 
-(define actions
-  '(up down left right))
+(define (actions state)
+  (if (member state states) '(up down left right) '()))
 
 (define rewards
   (mapping (s a s*)
